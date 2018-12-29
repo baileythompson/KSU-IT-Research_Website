@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title> Student Employment </title>
+    <link type="text/css" rel="stylesheet" href="stylesheet.css">
+</head>
+<body>
+<a href="http://ccse.kennesaw.edu/it/"> <img
+        src="https://cfvod.kaltura.com/p/1728581/sp/172858100/thumbnail/entry_id/1_1pode3lk/version/100000/width/617/height/347">
+    <br>
+    <div class="navbar">
+        <a href="/IT5443Milestone2/index.htm">Home</a>
+
+        <a href="/IT5443Milestone2/AboutFaculty.htm">Faculty</a>
+
+        <a href="/IT5443Milestone2/Resources.html">Resources</a>
+
+        <a href="/IT5443Milestone2/Student%20Employment.html">Student Employment</a>
+
+        <a href="IT5443Milestone2/Application.html">Application</a>
+
+    </div>
+    <h1> KSU Center for Applied Research in Information Technology </h1>
+    <p> Want to work in research with some of the top minds in Kennesaw State University's Information Technology
+        Program? Consider appyling to be one of four student assistants at KSU CARIT this summer!</p>
+    <p> You will assist in the creation of the research process, gather answers from test subjects, compile them and
+        report your findings. You will have the opportunity to witness every step of the professional information
+        technology research process on a variety of projects that are already in their various stages. You will also
+        learn what the life of an information technology researcher is like, and perhaps be inspired to become one
+        yourself!</p>
+    <p> Interested? Fill out the form below to see if you are eligible to be considered for a position. We looking
+        forward to hearing from you.</p>
+    <script>
+
+        function convertGPA(grade) {
+            switch (grade.toUpperCase()) {
+                case 'A':
+                    return 4;
+                case 'B':
+                    return 3;
+                case 'C':
+                    return 2;
+                case 'D':
+                    return 1;
+                default:
+                    return 0
+            }
+        }
+
+        function calculateGPA(selectedInputsList) {
+            // calculate total for all inputs
+            var total = 0;
+            for (var i = 0; i < selectedInputsList.length; i++) {
+                total += convertGPA(selectedInputsList[i].value)
+            }
+
+            var gpa = total / 4
+            console.log(gpa)
+
+            return gpa;
+        }
+
+        function printMessageForGPA(gpa, parentId) {
+            if(parentId === "ug") {
+                if(gpa>3.2) {
+                    console.log("Congratulations! You are eligible to apply for one of the two open undergraduate positions.")
+                }
+                else {
+                    console.log("Thank you for your interest, but your GPA does not meet the requirements.")
+                }
+            }
+            else {
+                // grad
+                if(gpa > 3.7) {
+                    console.log("Congratulations! You are eligible to apply for one of the two open graduate positions.")
+                }
+                else {
+                    console.log("Thank you for your interest, but your GPA does not meet the requirements.")
+                }
+            }
+        }
+
+        function computeGradePointAverage() {
+            // Get a reference to selected radio button
+            var selectedRadioList = document.querySelectorAll('input[type="radio"]:checked');
+
+            // If something was selected
+            if (selectedRadioList && selectedRadioList.length > 0) {
+                // get id for selected radio
+                var radioId = selectedRadioList[0].id;
+                var parentId = selectedRadioList[0].parentElement.id;
+
+                // get all inputs for selected radio by class name
+                var selectedInputsList = document.querySelectorAll('.' + radioId)
+
+                var gpa = calculateGPA(selectedInputsList)
+                printMessageForGPA(gpa, parentId)
+            }
+            else {
+                // Nothing selected
+            }
+        }
+
+    </script>
+    <form action="/my-handling-form-page">
+        <div id="ug" style="text-align:left;">
+            <input type="radio" onclick="javascript:positionCheck();" id="yesCheck1"> Undergraduate Position 1
+            <div id="ug1" style="visibility:hidden">
+                <p> Please enter the letter grades you received for the following courses. </p>
+                CSE 3203<input type='text' class='yesCheck1'><br>
+                IT 4213<input type='text' class='yesCheck1'><br>
+                CSE 4232<input type='text' class='yesCheck1'><br>
+                IT 3115<input type='text' class='yesCheck1'><br>
+            </div>
+            <input type="radio" onclick="javascript:positionCheck2();" id="yesCheck2"> Undergraduate Position 2
+            <div id="ug2" style="visibility:hidden">
+                <p> Please enter the letter grades you received for the following courses. </p>
+                IT 4153<input type='text' class='yesCheck2'><br>
+                IT 4713<input type='text' class='yesCheck2'><br>
+                IT 4232<input type='text' class='yesCheck2'><br>
+                IT 3115<input type='text' class='yesCheck2'><br>
+            </div>
+        </div>
+        <div id="grad" style="text-align:left;">
+            <input type="radio" onclick="javascript:positionCheck3();" id="yesCheck3"> Graduate Position 1
+            <div id="g1" style="visibility:hidden">
+                <p> Please enter the letter grades you received for the following courses. </p>
+                IT 6203<input type='text' class='yesCheck3'><br>
+                IT 5753<input type='text' class='yesCheck3'><br>
+                IT 6232<input type='text' class='yesCheck3'><br>
+                IT 3115<input type='text' class='yesCheck3'><br>
+            </div>
+            <input type="radio" onclick="javascript:positionCheck4();" id="yesCheck4"> Graduate Position 2
+            <div id="g2" style="visibility:hidden">
+                <p> Please enter the letter grades you received for the following courses. </p>
+                IT 6713<input type='text' class='yesCheck4'><br>
+                IT 7113<input type='text' class='yesCheck4'><br>
+                IT 5232<input type='text' class='yesCheck4'><br>
+                IT 6115<input type='text' class='yesCheck4'><br>
+            </div>
+        </div>
+    </form>
+    <input id="gpa" type="button" value="Calculate" onclick="computeGradePointAverage()">
+     <div> document.getElementById </div>
+    <div id="gpa"></div>
+    </div>
+    <script>
+        function positionCheck() {
+            if (document.getElementById('yesCheck1').checked) {
+                document.getElementById('ug1').style.visibility = 'visible';
+            }
+            else document.getElementById('ug1').style.visibility = 'hidden';
+
+        }
+
+        function positionCheck2() {
+            if (document.getElementById('yesCheck2').checked) {
+                document.getElementById('ug2').style.visibility = 'visible';
+            }
+            else document.getElementById('ug2').style.visibility = 'hidden';
+
+        }
+
+        function positionCheck3() {
+            if (document.getElementById('yesCheck3').checked) {
+                document.getElementById('g1').style.visibility = 'visible';
+            }
+            else document.getElementById('g1').style.visibility = 'hidden';
+
+        }
+
+        function positionCheck4() {
+            if (document.getElementById('yesCheck4').checked) {
+                document.getElementById('g2').style.visibility = 'visible';
+            }
+            else document.getElementById('g2').style.visibility = 'hidden';
+
+        }
+    </script>
+    <br>
+
+    <a href="http://ccse.kennesaw.edu/it"> <img
+            src="https://bloximages.newyork1.vip.townnews.com/mdjonline.com/content/tncms/assets/v3/editorial/e/9b/e9b0bbb8-e69a-11e6-96bd-138f9afd9d62/588eb0e9a063f.image.jpg">
+    </a>
+</body>
+</html>
+

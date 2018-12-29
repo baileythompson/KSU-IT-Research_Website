@@ -1,0 +1,118 @@
+div {
+
+	font-family: Arial;
+
+	font-size: 20px;
+
+	color: #A9A9A9;
+
+    text-align: center
+
+}
+
+div:link {
+
+	color: #20B2AA;
+
+	font-family: Arial;
+
+}
+
+
+
+img {
+
+	display: block;
+
+    margin-right: auto;
+
+    margin-left: auto;
+
+    }
+
+
+
+a:hover {
+
+  color: #eedd82;
+
+}
+
+
+
+h1 {
+
+	font-family: Arial;
+
+    color: #696969:
+
+    }
+
+  
+
+h2 {
+
+	font-family: Arial;
+
+    color: #696969:
+
+    }  
+
+    
+
+h3 {
+
+	font-family: Arial;
+
+    color: #696969:
+
+    }    
+
+
+
+p {
+
+	color: #696969;
+
+	font-family: Arial;
+
+	font-size: 16px;
+
+    text-align: left;
+
+}
+
+
+
+li {
+
+	font-family: Arial;
+
+    color: #696969;
+
+}
+
+form {
+	
+font-family: Arial;
+
+text-align: left;
+
+font-size: 16px;
+
+color: #696969;
+
+}
+
+input {
+
+font-family: Arial;
+
+text-align: left;
+
+font-size: 16px;
+
+color: #696969;
+
+}
+
